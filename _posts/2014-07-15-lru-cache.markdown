@@ -1,0 +1,127 @@
+---
+layout: post
+title:  "LRU Cache"
+date:   2014-07-15 23:30:29
+categories: test
+---
+
+Code snippets for LRU Cache:
+
+{% highlight java %}
+import java.util.HashMap;
+
+public class TestString {
+    private class Node {
+        Node prev;
+        Node next;
+        Object value;
+        Object key;
+        public Node(Object key, Object value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    public class DoubleLinkedList{
+        Node head;
+        Node tail;
+        void movefront(Node node) {
+            if (node.prev != null)
+                node.prev.next = node.next;
+            if (node.next != null)
+                node.next.prev = node.prev;
+
+            node.next = head;
+            head = node;
+        }
+
+        public void add(Node node) {
+            node.next = head;
+            head = node;
+            if (head.next == null) {
+                tail = head;
+            } else {
+                head.next.prev = head;
+            }
+        }
+        public Node getTail() {
+            return tail;
+        }
+        public void removeLast() {
+            if (tail.prev != null)
+            tail.prev.next = null;
+            tail = tail.prev;
+        }
+
+        public Node getHead() {
+            return head;
+        }
+    }
+    private int size;
+    private HashMap<Object, Node> cache;
+    private DoubleLinkedList list;
+    private int count;
+
+    public TestString(int size) {
+        list = new DoubleLinkedList();
+        count = 0;
+        this.size = size;
+        cache = new HashMap<Object, Node>();
+    }
+    public Object get(Object key) {
+        if (cache.containsKey(key)) {
+            Node node = cache.get(key);
+            list.movefront(node);
+            return node.value;
+        }
+        return null;
+    }
+
+    public void set(Object key, Object value) {
+        if (cache.containsKey(key)) {
+            Node node = cache.get(key);
+            node.value = value;
+        } else {
+            Node node = new Node(key, value);
+            list.add(node);
+            cache.put(key, node);
+            if (count < size) {
+                count++;
+            } else {
+                cache.remove(list.getTail().key);
+                list.removeLast();
+            }
+        }
+    }
+    public void print() {
+        Node node = list.getHead();
+        while (node!= null) {
+            System.out.print(node.key + "->");
+            node = node.next;
+        }
+        System.out.print("\n");
+    }
+
+    public static void main(String args[]) {
+        TestString t = new TestString(4);
+        t.set("t1", 1);
+        t.set("t2", 2);
+        t.set("t3", 3);
+        t.set("t4", 4);
+        t.print();
+        t.set("t5", 5);
+        t.print();
+        System.out.println(t.get("t1"));
+        t.print();
+        System.out.println(t.get("t2"));
+        t.print();
+        System.out.println(t.get("t3"));
+        t.print();
+    }
+}
+{% endhighlight %}
+
+Check out the [Fei Linkedin page][linkedin] for more info. Follow [Fei's GitHub repo][github] for updates.
+
+[linkedin]: https://linkedin.com/in/dongfei
+[github]: https://github.com/dongfeiwww
