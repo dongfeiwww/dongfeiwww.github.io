@@ -1,0 +1,12 @@
+# Site settings
+title: Fei Playground
+email: dongfeiwww@gmail.com
+description: "Tech notes."
+baseurl: ""
+url: "http://dongfeiwww.com"
+twitter_username: dongfeiwww
+github_username:  dongfeiwww
+
+# Build settings
+markdown: kramdown
+permalink: pretty
