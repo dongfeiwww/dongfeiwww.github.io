@@ -6,7 +6,7 @@ category: blog
 ---
 
 这是《The Art of Readable Code》的读书笔记，强烈推荐此书：
-![](http://beiyuu.com/readable-code/)
+from [BeiYuu.com][BEIYUU]
 - 英文版：[《The Art of Readable Code》][RCEN]
 - 中文版：[编写可读代码的艺术][RCCN]
 
@@ -1326,3 +1326,4 @@ category: blog
 
 [RCEN]: http://book.douban.com/subject/5442971/ "The Art Of Readable Code"
 [RCCN]: http://book.douban.com/subject/10797189/ "编写可读代码的艺术"
+[BEIYUU]: http://beiyuu.com/readable-code/
