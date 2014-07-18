@@ -14,10 +14,9 @@ categories: design pattern
  a design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to coordinate actions across the system
 
 
-
 Eager initialization
 
-```
+~~~
 public class Singleton {
     private static final Singleton INSTANCE = new Singleton();
  
@@ -27,13 +26,13 @@ public class Singleton {
         return INSTANCE;
     }
 }
-```
+~~~
 
 Lazy initialization
 
 This method uses double-checked locking, which should not be used prior to J2SE 5.0, as it is vulnerable to subtle bugs. The problem is that an out-of-order write may allow the instance reference to be returned before the Singleton constructor is executed.
 
-```
+~~~~~
 public class SingletonDemo {
     private static volatile SingletonDemo instance = null;
     private SingletonDemo() { }
@@ -48,11 +47,11 @@ public class SingletonDemo {
         return instance;
     }
 }
-```
+~~~~~
 
 Initialization On Demand Holder Idiom
 
-```
+~~~
 public class Singleton {
 	// Private constructor prevents instantiation from other classes
 	private Singleton() { }
@@ -69,20 +68,21 @@ public class Singleton {
 		return SingletonHolder.INSTANCE;
 	}
 }
-```
+~~~
 
 The Enum way
 
 In the second edition of his book Effective Java, Joshua Bloch claims that "a single-element enum type is the best way to implement a singleton" for any Java that supports enums. The use of an enum is very easy to implement and has no drawbacks regarding serializable objects, which have to be circumvented in the other ways.
 
-```
+~~~
 public enum Singleton {
     INSTANCE;
     public void execute (String arg) {
         // Perform operation here 
     }
 }
-```
+~~~
+
 ### Dependency Injection
 [WIKI][DEPENDENCY]
 
@@ -94,7 +94,7 @@ a design pattern that allows behavior to be added to an individual object, eithe
 First example (window/scrolling scenario)[edit]
 The following Java example illustrates the use of decorators using the window/scrolling scenario.
 
-```
+~~~
 // The Window interface class
 public interface Window {
     public void draw(); // Draws the Window
@@ -111,10 +111,11 @@ class SimpleWindow implements Window {
         return "simple window";
     }
 }
-```
+~~~
+
 The following classes contain the decorators for all Window classes, including the decorator classes themselves.
 
-```
+~~~
 // abstract decorator class - note that it implements Window
 abstract class WindowDecorator implements Window {
     protected Window windowToBeDecorated; // the Window being decorated
@@ -173,10 +174,11 @@ class HorizontalScrollBarDecorator extends WindowDecorator {
         return super.getDescription() + ", including horizontal scrollbars";
     }
 }
-```
+~~~
+
 Here's a test program that creates a Window instance which is fully decorated (i.e., with vertical and horizontal scrollbars), and prints its description:
 
-```
+~~~
 public class DecoratedWindowTest {
     public static void main(String[] args) {
         // Create a decorated Window with horizontal and vertical scrollbars
@@ -187,7 +189,7 @@ public class DecoratedWindowTest {
         System.out.println(decoratedWindow.getDescription());
     }
 }
-```
+~~~
 
 ### Iterator
 
@@ -195,7 +197,7 @@ a design pattern in which an iterator is used to traverse a container and access
 
 Example 1: Tree iterator
 
-```
+~~~
 /**
  * An iterator that iterates through a tree using in-order tree traversal
  * allowing a sorted sequence.
@@ -232,11 +234,11 @@ public class Iterator {
         return new Iterator(root);
     }
 }
-```
+~~~
 
 Example 2: Merge iterator
- 
-```
+
+~~~
 public interface Iterator {
   /**
    * @return True if the there is a next element
@@ -287,11 +289,11 @@ class MergedIterator {
   }
 
 }
-```
+~~~
 
 Example 3: Deep Iterator
 
-```
+~~~
 class DeepIterator implements Iterator<Object> {
     Stack<Iterator<Object>> itrs;
     Object curValue;
@@ -336,7 +338,7 @@ class DeepIterator implements Iterator<Object> {
   
     }
 }
-```
+~~~
 
 ### Scalable System Design Pattern
 
