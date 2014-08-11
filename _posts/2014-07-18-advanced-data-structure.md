@@ -9,11 +9,11 @@ categories: data structure
 
 ### Bloom Filter
 
-
 ### Skip list
 
-
 ### Hyperloglog
+
+http://en.wikipedia.org/wiki/HyperLogLog
 
 ### SimHash
 
