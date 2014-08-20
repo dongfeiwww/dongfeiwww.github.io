@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Advanced Data Structure"
-date:   2014-07-18 00:30:29
+date:   2014-07-26 00:30:29
 categories: data structure
 ---
 
