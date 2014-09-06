@@ -46,15 +46,15 @@ Homebrew (0.9.5) installs Hadoop v2.5 so the steps below are specific to that ve
  
  To begin the installation you'll need to SSH into your workstation. Open up console and fire up the ssh client.
  
- ~~~
+~~~
  $ ssh localhost
- ~~~
+~~~
  
  - Install Hadoop 
  
- ~~~
+~~~
  $ brew install hadoop
- ~~~
+~~~
  
  - Create HDFS directory:
  
@@ -253,3 +253,4 @@ stop-dfs.sh && stop-yarn.sh
 ### Reference
 
  * [Hadoop Single Node](http://hadoop.apache.org/docs/r2.4.0/hadoop-project-dist/hadoop-common/SingleCluster.html)
+ * [Big data and Hadoop](http://glebche.appspot.com/static/hadoop-ecosystem/hadoop-hive-tutorial.html)
