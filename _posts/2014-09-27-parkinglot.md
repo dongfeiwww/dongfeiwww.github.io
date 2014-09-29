@@ -9,8 +9,10 @@ categories: code
 
 ## Basic Question
 ---------
-	I'm the owner of a parking lot empire. I'm still pretty small - I only have 3 lots in downtown, but my visions are grand. As such, I've hired you to design and build an automated system for managing my parking lots. Assume that you have access to all the latest in ticket-giving and ticket-accepting machines, a sensor network built into the parking lot, and programmable signs to give directions to customers. I want to charge customers by the amount of space they use in the lot (area) and the length of time they use the lot (time).
 
+I'm the owner of a parking lot empire. I'm still pretty small - I only have 3 lots in downtown, but my visions are grand. As such, I've hired you to design and build an automated system for managing my parking lots. Assume that you have access to all the latest in ticket-giving and ticket-accepting machines, a sensor network built into the parking lot, and programmable signs to give directions to customers. I want to charge customers by the amount of space they use in the lot (area) and the length of time they use the lot (time).
+
+------
 
 A good candidate should start asking you questions at this point, determining the bounds of the problem and getting clarifying information (this is good). But if not, help focus them on a couple specific use cases:
 
